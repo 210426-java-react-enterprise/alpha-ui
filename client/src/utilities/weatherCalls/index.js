@@ -24,6 +24,9 @@ export const currentWeather = async (city) => {
         current.wind = res.data.wind.speed;
     })
     console.log("current weather: ", current);
+
+    //TODO Store lat, lon, and city name together in DB
+    
     return current;
     
 }
