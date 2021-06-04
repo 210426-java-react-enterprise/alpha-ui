@@ -22,8 +22,7 @@ export class Event {
 
 export class CurrentWeather {
 
-    constructor(city_id, description, icon, temp, pressure, humidity, wind) {
-        this.city_id = city_id;
+    constructor(description, icon, temp, pressure, humidity, wind) {
         this.description = description;
         this.icon = icon;
         this.temp = temp;
@@ -33,3 +32,19 @@ export class CurrentWeather {
     }
 
 }
+
+export class DailyWeather {
+
+    constructor(max_temp, min_temp, dt, pressure, humidity, wind, description, icon, uvi) {
+        this.max_temp = max_temp;
+        this.min_temp = min_temp;
+        this.dt = dt;
+        this.pressure = pressure;
+        this.humidity = humidity;
+        this.wind = wind;
+        this.description = description;
+        this.icon = icon;
+        this.uvi = uvi;
+    }
+}
+
