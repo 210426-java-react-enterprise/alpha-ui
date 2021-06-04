@@ -12,7 +12,7 @@ export const currentWeather = async (city) => {
     const currentCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     
     await axios.get(currentCall).then(res => {
-        console.log(res);
+        
         lat = res.data.coord.lat;
         lon = res.data.coord.lon;
         current.city_id = res.data.id;
@@ -23,10 +23,9 @@ export const currentWeather = async (city) => {
         current.humidity = res.data.main.humidity;
         current.wind = res.data.wind.speed;
     })
-    console.log("current weather: ", current);
-
-    //TODO Store lat, lon, and city name together in DB
     
+    //TODO Store lat, lon, and city name together in DB
+
     return current;
     
 }
