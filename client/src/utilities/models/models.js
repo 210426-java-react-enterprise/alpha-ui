@@ -6,7 +6,7 @@ export class User {
         this.password = password;
         this.email = email;
     }
-    
+
 }
 
 export class Event {
@@ -22,8 +22,8 @@ export class Event {
 
 export class CurrentWeather {
 
-    constructor(city, description, icon, temp, pressure, humidity, wind) {
-        this.city = city;
+    constructor(city_id, description, icon, temp, pressure, humidity, wind) {
+        this.city_id = city_id;
         this.description = description;
         this.icon = icon;
         this.temp = temp;

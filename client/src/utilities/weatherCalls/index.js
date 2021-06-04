@@ -3,14 +3,28 @@ import { CurrentWeather } from '../models/models';
 
 const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
-export const currentWeather = async (lat, lon) => {
+export const currentWeather = async (city) => {
 
-    let currentWeather = new CurrentWeather;
+    let current = new CurrentWeather;
+    let lat;
+    let lon;
+
+    const currentCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     
-    const query = `https://api.openweathermap.org/data/2.5/onecall?appid=${apiKey}&lat=${lat}&lon=${lon}`;
-    
-    await axios.get(query).then(res => {
-        console.log("response weather one call: " + res);
+    await axios.get(currentCall).then(res => {
+        console.log(res);
+        lat = res.data.coord.lat;
+        lon = res.data.coord.lon;
+        current.city_id = res.data.id;
+        current.description = res.data.weather[0].description;
+        current.icon = res.data.weather[0].icon;
+        current.temp = res.data.main.temp;
+        current.pressure = res.data.main.pressure;
+        current.humidity = res.data.main.humidity;
+        current.wind = res.data.wind.speed;
     })
-
+    console.log("current weather: ", current);
+    return current;
+    
 }
+
