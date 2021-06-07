@@ -17,7 +17,18 @@ function App() {
       </Row>
       <Row>
         <Col>
+          <h1>Current Weather</h1>
           
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+        <h1>Hourly Forecast</h1>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+        <h1>Daily Forecast</h1>
         </Col>
       </Row>
     </Container>
