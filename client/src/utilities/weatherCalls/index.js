@@ -18,7 +18,7 @@ export const currentWeather = async (city) => {
         current.city_id = res.data.id;
         current.description = res.data.weather[0].description;
         current.icon = res.data.weather[0].icon;
-        current.temp = res.data.main.temp;
+        current.temp = convertTemp(res.data.main.temp);
         current.pressure = res.data.main.pressure;
         current.humidity = res.data.main.humidity;
         current.wind = res.data.wind.speed;
@@ -77,5 +77,10 @@ export const oneCall = async (lat, lon) => {
 
     return forecast;
 
+}
+
+function convertTemp(temp) {
+    let num = 1.8 * (temp - 273.15) + 32
+    return num.toFixed(2);
 }
 
