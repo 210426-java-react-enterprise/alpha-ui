@@ -1,7 +1,8 @@
 import './App.css';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import Register from "./components/Register"
-import SignIn from "./components/SignIn" 
+import SignIn from "./components/SignIn"
+import SearchBar from "./components/SearchBar"
 
 function App() {
 
@@ -18,17 +19,7 @@ function App() {
       <Row>
         <Col>
           <h1>Current Weather</h1>
-          
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-        <h1>Hourly Forecast</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-        <h1>Daily Forecast</h1>
+          <SearchBar />
         </Col>
       </Row>
     </Container>
