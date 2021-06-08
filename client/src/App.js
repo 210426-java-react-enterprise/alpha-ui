@@ -1,5 +1,9 @@
 import './App.css';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button, Form } from 'react-bootstrap';
+import Register from "./components/Register"
+import SignIn from "./components/SignIn"
+import SearchBar from "./components/SearchBar"
+import SignOut from ".components/SignOut"
 
 function App() {
 
@@ -7,12 +11,19 @@ function App() {
     <Container>
       <Row>
         <Col>
-        
-       
+        <Register />
+        </Col>
+        <Col>
+        <SignIn />
         </Col>
       </Row>
-  </Container>  
-
+      <Row>
+        <Col>
+          <h1>Current Weather</h1>
+          <SearchBar />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
