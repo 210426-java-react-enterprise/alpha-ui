@@ -1,9 +1,14 @@
 import { Row, Col } from "react-bootstrap";
 
-const Current = ({ data }) => {
+const Current = ({ data, city }) => {
     
     return (
-      <>
+        <>
+            <Row>
+                <Col>
+                    <h1>{city}</h1>
+                </Col>
+            </Row>
         <Row>
           <Col>Tempurature: {data.temp} &deg;F</Col>
         </Row>

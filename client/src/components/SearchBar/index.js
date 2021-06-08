@@ -8,7 +8,8 @@ const SearchBar = () => {
     city: "",
   });
 
-    const [data, setdata] = useState({});
+  const [data, setdata] = useState({});
+  const [searchedCity, setSearchedCity] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,8 +19,9 @@ const SearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     currentWeather(city.city).then((res) => {
-        setdata(res);
-        setCity({city: ""});
+      setdata(res);
+      setCity({ city: "" });
+      setSearchedCity(city.city);
     });
   };
 
@@ -44,7 +46,7 @@ const SearchBar = () => {
       </Row>
       <Row>
         <Col>
-          <Current data={data} />
+          <Current city={searchedCity} data={data} />
         </Col>
       </Row>
     </>
