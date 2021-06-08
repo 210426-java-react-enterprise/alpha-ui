@@ -1,17 +1,11 @@
-import { Row, Col, Button, Form } from "react-bootstrap";
+import { Row, Col, Button} from "react-bootstrap";
 import { useState } from "react";
 
 const SignOut = () => {
-  const [loginCreds, setLoginCreds] = useState({
-    username: "",
-    password: "",
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    loginCreds.username = "", loginCreds.password = ""
-    console.log(loginCreds);
-  };
+    const logout = (e) =>{
+        localStorage.clear();
+        window.location.href = '/';
+    }
 
   return (
     <>
@@ -22,7 +16,7 @@ const SignOut = () => {
       </Row>
       <Row>
         <Col>
-            <Button onClick={handleSubmit} variant="primary" type="submit">
+            <Button onClick={this.logout()} variant="primary" type="submit">
               LogOut
             </Button>
         </Col>
