@@ -92,7 +92,7 @@ const Register = () => {
                             />
                         </Form.Group>
                         <Button onClick={handleSubmit} variant="primary" type="submit">
-                            Login
+                            Register
                         </Button>
                     </Form>
                 </Col>

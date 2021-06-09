@@ -23,5 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # IDE files
-.idea
-.iml
+.idea/
+../.idea/
+*.iml
