@@ -21,27 +21,25 @@ const SevenDay = ({ data }) => {
           <Button onClick={handleClick}>7 Day Forecast</Button>
         </Col>
       </Row>
-      <Row>
-        {show && (
-                  <Col className="d-flex w-100">
-            {response.current.map((day, i) => {
-              return (
-                <Day
-                  key={i}
-                  max_temp={day.max_temp}
-                  min_temp={day.min_temp}
-                  dt={day.dt}
-                  humidity={day.humidity}
-                  pressure={day.pressure}
-                  icon={day.icon}
-                  uvi={day.uvi}
-                  wind={day.wind}
-                />
-              );
-            })}
-          </Col>
-        )}
-      </Row>
+      {show && (
+        <Row className="bg-light border mt-3">
+          {response.current.map((day, i) => {
+            return (
+              <Day
+                key={i}
+                max_temp={day.max_temp}
+                min_temp={day.min_temp}
+                dt={day.dt}
+                humidity={day.humidity}
+                pressure={day.pressure}
+                icon={day.icon}
+                uvi={day.uvi}
+                wind={day.wind}
+              />
+            );
+          })}
+        </Row>
+      )}
     </>
   );
 };

@@ -22,8 +22,8 @@ const Day = ({
   
 
   return (
-    <Row>
-      <Col>
+    
+      <Col className="m-2 border bg-white">
         <Row>
           <Col>{dt}</Col>
         </Row>
@@ -49,7 +49,7 @@ const Day = ({
         </Row>
         
       </Col>
-    </Row>
+    
   );
 };
 
