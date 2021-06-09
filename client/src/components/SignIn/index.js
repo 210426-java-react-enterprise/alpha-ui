@@ -15,46 +15,48 @@ const SignIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(loginCreds);
+    // TODO IMPLEMENT AXIOS CALL FOR LOGIN FUNCTIONALITY
   };
 
   return (
-    <>
-      <Row>
-        <Col>
-          <h1>Sign In</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Form>
-            <Form.Group>
-              <Form.Control
-                type="email"
-                id="username"
-                name="username"
-                value={loginCreds.username}
-                onChange={handleChange}
-                placeholder="Enter email"
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="password"
-                id="password"
-                name="password"
-                value={loginCreds.password}
-                onChange={handleChange}
-                placeholder="Password"
-              />
-            </Form.Group>
-            <Button onClick={handleSubmit} variant="primary" type="submit">
-              Login
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-    </>
+    <Row>
+      <Col lg={6}>
+        <Row>
+          <Col>
+            <h1>Sign In</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Form>
+              <Form.Group>
+                <Form.Control
+                  type="email"
+                  id="username"
+                  name="username"
+                  value={loginCreds.username}
+                  onChange={handleChange}
+                  placeholder="Enter email"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={loginCreds.password}
+                  onChange={handleChange}
+                  placeholder="Password"
+                />
+              </Form.Group>
+              <Button onClick={handleSubmit} variant="primary" type="submit">
+                Login
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
   );
 };
 

@@ -10,6 +10,7 @@ const SearchBar = () => {
 
   const [data, setdata] = useState({});
   const [searchedCity, setSearchedCity] = useState("");
+  const [show, setShow] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,13 +23,14 @@ const SearchBar = () => {
       setdata(res);
       setCity({ city: "" });
       setSearchedCity(city.city);
+      setShow(true);
     });
   };
 
   return (
     <>
       <Row>
-        <Col lg={3}>
+        <Col xs={10} md={6} lg={3} className="mt-4 p-2 bg-light border border-rounded">
           <Form>
             <Form.Group>
               <Form.Control
@@ -46,7 +48,7 @@ const SearchBar = () => {
       </Row>
       <Row>
         <Col>
-          <Current city={searchedCity} data={data} />
+          <Current show={show} city={searchedCity} data={data} />
         </Col>
       </Row>
     </>
