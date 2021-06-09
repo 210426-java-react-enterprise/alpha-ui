@@ -81,6 +81,6 @@ export const oneCall = async (lat, lon) => {
 
 function convertTemp(temp) {
     let num = 1.8 * (temp - 273.15) + 32
-    return num.toFixed(2);
+    return num.toFixed(0);
 }
 

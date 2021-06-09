@@ -99,6 +99,7 @@ const Register = () => {
             </Row>
         </>
     );
+
 };
 
 export default Register;
