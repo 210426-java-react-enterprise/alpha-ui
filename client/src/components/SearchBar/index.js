@@ -2,6 +2,7 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 import Current from "../Main/Current";
 import { currentWeather } from "../../utilities/weatherCalls";
 import { useState } from "react";
+import SevenDay from "../Main/Forecast_Daily";
 
 const SearchBar = () => {
   const [city, setCity] = useState({
@@ -49,6 +50,11 @@ const SearchBar = () => {
       <Row>
         <Col>
           <Current show={show} city={searchedCity} data={data} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <SevenDay data={data} show={show} />
         </Col>
       </Row>
     </>

@@ -16,7 +16,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO IMPLEMENT AXIOS CALL TO REGISTER USER, STORE CREDENTIALS TO STATE OBJECT
+    // TODO IMPLEMENT SERVICE CALL TO REGISTER USER, STORE CREDENTIALS TO STATE OBJECT
   };
 
   return (

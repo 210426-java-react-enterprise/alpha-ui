@@ -6,15 +6,13 @@ const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 export const currentWeather = async (city) => {
 
     let current = new CurrentWeather();
-    let lat;
-    let lon;
-
+   
     const currentCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     
     await axios.get(currentCall).then(res => {
         
-        lat = res.data.coord.lat;
-        lon = res.data.coord.lon;
+        current.lat = res.data.coord.lat;
+        current.lon = res.data.coord.lon;
         current.city_id = res.data.id;
         current.description = res.data.weather[0].description;
         current.icon = res.data.weather[0].icon;
