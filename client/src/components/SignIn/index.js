@@ -14,6 +14,7 @@ const SignIn = () => {
   };
 
   const handleSubmit = (e) => {
+    // use auth service for login
     e.preventDefault();
     console.log(loginCreds);
   };
