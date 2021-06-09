@@ -16,56 +16,58 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(loginCreds);
+    // TODO IMPLEMENT AXIOS CALL TO REGISTER USER, STORE CREDENTIALS TO STATE OBJECT
   };
 
   return (
-      <>
-          <Row>
-              <Col>
-              <h1>Register</h1>
-              </Col>
-          </Row>
-      <Row>
-        <Col>
-          <Form>
-            <Form.Group>
-              <Form.Control
-                type="email"
-                id="username"
-                name="username"
-                value={loginCreds.username}
-                onChange={handleChange}
-                placeholder="Enter email"
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="password"
-                id="password"
-                name="password"
-                value={loginCreds.password}
-                onChange={handleChange}
-                placeholder="Password"
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="email"
-                id="email"
-                name="email"
-                value={loginCreds.email}
-                onChange={handleChange}
-                placeholder="Enter Email"
-              />
-            </Form.Group>
-            <Button onClick={handleSubmit} variant="primary" type="submit">
-              Login
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-    </>
+    <Row>
+      <Col lg={6}>
+        <Row>
+          <Col>
+            <h1>Register</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Form>
+              <Form.Group>
+                <Form.Control
+                  type="email"
+                  id="username"
+                  name="username"
+                  value={loginCreds.username}
+                  onChange={handleChange}
+                  placeholder="Enter email"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={loginCreds.password}
+                  onChange={handleChange}
+                  placeholder="Password"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={loginCreds.email}
+                  onChange={handleChange}
+                  placeholder="Enter Email"
+                />
+              </Form.Group>
+              <Button onClick={handleSubmit} variant="primary" type="submit">
+                Login
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
   );
 };
 
