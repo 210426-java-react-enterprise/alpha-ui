@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import Register from "./components/Register"
 import SignIn from "./components/SignIn"
 import SearchBar from "./components/SearchBar"
-import SignOut from ".components/SignOut"
+import SignOut from "./components/SignOut"
 
 function App() {
 
