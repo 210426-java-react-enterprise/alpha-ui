@@ -56,7 +56,7 @@ export const oneCall = async (lat, lon) => {
             let day = new DailyWeather();
             day.max_temp = convertTemp(daily[i].temp.max);
             day.min_temp = convertTemp(daily[i].temp.min);
-            day.dt = daily[i].dt;
+            day.dt = dateConverter(daily[i].dt);
             day.pressure = daily[i].pressure;
             day.humidity = daily[i].humidity;
             day.wind = daily[i].wind_speed;
@@ -82,5 +82,12 @@ function convertTemp(temp) {
     return num.toFixed(0);
 }
 
+function dateConverter(unix) {
+    let a = new Date(unix * 1000);
+    let date = a.getDate();
+    let month = a.getMonth();
+    let year = a.getFullYear();
+    return month + "/" + date;
+}
 
 
