@@ -37,7 +37,7 @@ export const oneCall = async (lat, lon) => {
     const oneCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
     await axios.get(oneCall).then(res => {
-        
+        console.log("response one call: ", res);
         let hourly = res.data.hourly;
         let daily = res.data.daily;
 
@@ -54,14 +54,14 @@ export const oneCall = async (lat, lon) => {
 
         for (let i = 0; i < 7; i++) {
             let day = new DailyWeather();
-            day.max_temp = daily[i].temp.max;
-            day.min_temp = daily[i].temp.min;
+            day.max_temp = convertTemp(daily[i].temp.max);
+            day.min_temp = convertTemp(daily[i].temp.min);
             day.dt = daily[i].dt;
             day.pressure = daily[i].pressure;
             day.humidity = daily[i].humidity;
             day.wind = daily[i].wind_speed;
-            day.description = daily[i].weather.description;
-            day.icon = daily[i].weather.icon;
+            day.description = daily[i].weather[0].description;
+            day.icon = daily[i].weather[0].icon;
             day.uvi = daily[i].uvi;
             sevenDay.push(day);
         }
@@ -81,4 +81,6 @@ function convertTemp(temp) {
     let num = 1.8 * (temp - 273.15) + 32
     return num.toFixed(0);
 }
+
+
 

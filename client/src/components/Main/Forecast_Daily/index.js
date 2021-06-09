@@ -1,36 +1,48 @@
-import { Row, Col, Table } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import Day from "./day";
 import { oneCall } from "../../../utilities/weatherCalls";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
-const SevenDay = ({ data, show }) => {
+const SevenDay = ({ data }) => {
   const response = useRef([]);
-  if (show) {
+  const [show, setShow] = useState(false);
+  const handleClick = (e) => {
     oneCall(data.lat, data.lon).then((res) => {
       console.log("response one call: ", res.sevenDay);
-        response.current = res.sevenDay;
-        console.log("response.current: ", response.current);
+      response.current = res.sevenDay;
+      console.log("response.current: ", response.current);
+      setShow(true);
     });
-  }
+  };
   return (
-    <Row>
-      {show && (
-        <Col className="d-flex">
-          {(response.current).map((day, i) => {
-              return <Day key={i}
-              max_temp={day.max_temp}
-              min_temp={day.min_temp}
-              dt={day.dt}
-              humidity={day.humidity}
-              pressure={day.pressure}
-              icon={day.icon}
-              uvi={day.uvi}
-              wind={day.wind}
-            />;
-          })}
+    <>
+      <Row>
+        <Col>
+          <Button onClick={handleClick}>7 Day Forecast</Button>
         </Col>
-      )}
-    </Row>
+      </Row>
+      <Row>
+        {show && (
+                  <Col className="d-flex w-100">
+            {response.current.map((day, i) => {
+              return (
+                <Day
+                  key={i}
+                  max_temp={day.max_temp}
+                  min_temp={day.min_temp}
+                  dt={day.dt}
+                  humidity={day.humidity}
+                  pressure={day.pressure}
+                  icon={day.icon}
+                  uvi={day.uvi}
+                  wind={day.wind}
+                />
+              );
+            })}
+          </Col>
+        )}
+      </Row>
+    </>
   );
 };
 

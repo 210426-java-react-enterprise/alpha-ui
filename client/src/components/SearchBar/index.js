@@ -31,7 +31,7 @@ const SearchBar = () => {
   return (
     <>
       <Row>
-        <Col xs={10} md={6} lg={3} className="mt-4 p-2 bg-light border border-rounded">
+        <Col lg={4} className="mt-4 p-2 bg-light border border-rounded">
           <Form>
             <Form.Group>
               <Form.Control
@@ -53,7 +53,7 @@ const SearchBar = () => {
         </Col>
       </Row>
       <Row>
-        <Col>
+        <Col lg={12}>
           <SevenDay data={data} show={show} />
         </Col>
       </Row>

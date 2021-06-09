@@ -10,31 +10,30 @@ const Day = ({
   wind,
   dt,
 }) => {
-  // const imgIcon = `/icons/${data.icon}.png`;
+  const imgIcon = `/icons/${icon}.png`;
 
   return (
     <Row>
       <Col>
         <Row>
-          <Col>{max_temp}</Col>
+          <Col className="d-flex justify-content-center align-items-center">
+            <img width="30px;" src={imgIcon}></img>
+          </Col>
         </Row>
         <Row>
-          <Col>{min_temp}</Col>
+          <Col>H: {max_temp} L: {min_temp}</Col>
         </Row>
         <Row>
-          <Col>{humidity}</Col>
+          <Col>Hm: {humidity}%</Col>
         </Row>
         <Row>
-          <Col>{icon}</Col>
+          <Col>{pressure} mlB</Col>
         </Row>
         <Row>
-          <Col>{pressure}</Col>
+          <Col>uvi: {uvi}</Col>
         </Row>
         <Row>
-          <Col>{uvi}</Col>
-        </Row>
-        <Row>
-          <Col>{wind}</Col>
+          <Col>wnd: {wind}</Col>
         </Row>
         <Row>
           <Col>{dt}</Col>
