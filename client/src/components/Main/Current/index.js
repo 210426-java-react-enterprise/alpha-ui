@@ -41,9 +41,6 @@ const Current = ({ data, city, show }) => {
                   </Col>
                 </Row>
                 <Row>
-                  <Col></Col>
-                </Row>
-                <Row>
                   <Col>
                     <div className="windCurrent">Wind: {data.wind} mph</div>
                   </Col>
