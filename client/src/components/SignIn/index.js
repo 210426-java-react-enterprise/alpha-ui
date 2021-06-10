@@ -1,5 +1,6 @@
 import { Row, Col, Button, Form } from "react-bootstrap";
 import { useState } from "react";
+import axios from "axios";
 
 const SignIn = () => {
   const [loginCreds, setLoginCreds] = useState({
@@ -10,13 +11,21 @@ const SignIn = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLoginCreds({ ...loginCreds, [name]: value });
-    console.log(loginCreds);
   };
 
   const handleSubmit = (e) => {
     // use auth service for login
     e.preventDefault();
-    // TODO IMPLEMENT SERVICE CALL FOR LOGIN FUNCTIONALITY
+    axios
+      .post("http://localhost:5000/auth/login", loginCreds)
+      .then((res) => {
+        console.log("response login: ", res);
+        setLoginCreds({
+          username: "",
+          password: ""
+        })
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
