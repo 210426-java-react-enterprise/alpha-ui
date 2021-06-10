@@ -1,12 +1,13 @@
 
 export class User {
 
-    constructor(username, password, email) {
+    constructor(username , password, email, state, city) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.state = state;
+        this.city = city;
     }
-
 }
 
 export class Event {
@@ -49,4 +50,5 @@ export class DailyWeather {
         this.uvi = uvi;
     }
 }
+
 

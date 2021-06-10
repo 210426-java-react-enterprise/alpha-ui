@@ -14,6 +14,7 @@ const SignIn = () => {
   };
 
   const handleSubmit = (e) => {
+    // use auth service for login
     e.preventDefault();
     // TODO IMPLEMENT SERVICE CALL FOR LOGIN FUNCTIONALITY
   };
