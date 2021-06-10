@@ -5,22 +5,24 @@ import SignIn from "./components/SignIn";
 import SearchBar from "./components/SearchBar";
 import SignOut from "./components/SignOut";
 
-
 function App() {
-  
   return (
-    <Container>
-      <Row>
-        <Col>
-          <Register />
-        </Col>
-        <Col>
-          <SignIn />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <SearchBar />
+    <Container fluid>
+      <Row className="d-flex justify-content-center">
+        <Col lg={10}>
+          <Row>
+            <Col>
+              <Register />
+            </Col>
+            <Col>
+              <SignIn />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <SearchBar />
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>

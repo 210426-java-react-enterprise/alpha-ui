@@ -16,7 +16,7 @@ const SignIn = () => {
   const handleSubmit = (e) => {
     // use auth service for login
     e.preventDefault();
-    // TODO IMPLEMENT AXIOS CALL FOR LOGIN FUNCTIONALITY
+    // TODO IMPLEMENT SERVICE CALL FOR LOGIN FUNCTIONALITY
   };
 
   return (

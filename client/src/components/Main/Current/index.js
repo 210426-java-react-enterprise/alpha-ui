@@ -7,7 +7,7 @@ const Current = ({ data, city, show }) => {
     <>
       {show && (
         <Row>
-          <Col xs={10} md={6} leg={5}>
+          <Col>
             <Row className="d-flex">
               <Col>
                 <div className="cityCurrent">{city}</div>
@@ -39,9 +39,6 @@ const Current = ({ data, city, show }) => {
                       Pressure: {data.pressure} mlB
                     </div>
                   </Col>
-                </Row>
-                <Row>
-                  <Col></Col>
                 </Row>
                 <Row>
                   <Col>

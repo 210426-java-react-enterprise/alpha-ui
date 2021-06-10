@@ -23,13 +23,15 @@ export class Event {
 
 export class CurrentWeather {
 
-    constructor(description, icon, temp, pressure, humidity, wind) {
+    constructor(description, icon, temp, pressure, humidity, wind, lat, lon) {
         this.description = description;
         this.icon = icon;
         this.temp = temp;
         this.pressure = pressure;
         this.humidity = humidity;
         this.wind = wind;
+        this.lat = lat;
+        this.lon = lon;
     }
 
 }

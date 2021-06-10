@@ -2,6 +2,7 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 import Current from "../Main/Current";
 import { currentWeather } from "../../utilities/weatherCalls";
 import { useState } from "react";
+import SevenDay from "../Main/Forecast_Daily";
 
 const SearchBar = () => {
   const [city, setCity] = useState({
@@ -30,7 +31,7 @@ const SearchBar = () => {
   return (
     <>
       <Row>
-        <Col xs={10} md={6} lg={3} className="mt-4 p-2 bg-light border border-rounded">
+        <Col lg={4} id="searchBar" className="mt-4 p-2 bg-light border">
           <Form>
             <Form.Group>
               <Form.Control
@@ -45,10 +46,13 @@ const SearchBar = () => {
           </Form>
           <Button onClick={handleSubmit}>Search</Button>
         </Col>
+        <Col lg={8}>
+          <Current show={show} city={searchedCity} data={data} />
+        </Col>
       </Row>
       <Row>
-        <Col>
-          <Current show={show} city={searchedCity} data={data} />
+        <Col lg={12}>
+          <SevenDay data={data} show={show} />
         </Col>
       </Row>
     </>
