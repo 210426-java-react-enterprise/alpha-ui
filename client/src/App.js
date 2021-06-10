@@ -7,23 +7,30 @@ import SignOut from "./components/SignOut";
 import { weatherState } from "./features/weatherData/weatherSlice";
 import { useSelector } from "react-redux";
 import Current from "./components/Main/Current";
-import Loader from './components/Loader';
+import Loader from "./components/Loader";
 import SevenDay from "./components/Main/Forecast_Daily";
+import NavBar from "./components/Main/NavBar";
 
 function App() {
   const weather = useSelector(weatherState);
 
   return (
     <Container fluid>
-      <Row style={{ height: "100vh" }} className="d-flex justify-content-center">
+      <Row
+        style={{ height: "100vh" }}
+        className="d-flex justify-content-center"
+      >
         <Col lg={10}>
           <Row>
             <Col>
+              <NavBar />
+            </Col>
+            {/* <Col>
               <Register />
             </Col>
             <Col>
               <SignIn />
-            </Col>
+            </Col> */}
           </Row>
           <Row>
             <Col>
@@ -40,14 +47,14 @@ function App() {
               <Col>
                 <Current />
               </Col>
-           )} 
+            )}
           </Row>
           <Row>
-            {weather.isLoaded &&
-            <Col>
-            <SevenDay />
-            </Col>
-            }
+            {weather.isLoaded && (
+              <Col>
+                <SevenDay />
+              </Col>
+            )}
           </Row>
         </Col>
       </Row>
