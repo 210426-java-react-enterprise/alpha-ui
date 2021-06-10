@@ -7,7 +7,7 @@ const Current = ({ data, city, show }) => {
     <>
       {show && (
         <Row>
-          <Col xs={10} md={6} lg={6}>
+          <Col>
             <Row className="d-flex">
               <Col>
                 <div className="cityCurrent">{city}</div>

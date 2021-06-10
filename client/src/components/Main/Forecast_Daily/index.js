@@ -18,11 +18,13 @@ const SevenDay = ({ data }) => {
     <>
       <Row>
         <Col>
-          <Button onClick={handleClick}>7 Day Forecast</Button>
+          <Button id="btn-sevenDay" onClick={handleClick}>
+            7 Day Forecast
+          </Button>
         </Col>
       </Row>
       {show && (
-        <Row className="bg-light border mt-3">
+        <Row className="d-flex bg-light border mt-3">
           {response.current.map((day, i) => {
             return (
               <Day

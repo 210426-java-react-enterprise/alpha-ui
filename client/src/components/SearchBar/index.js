@@ -31,7 +31,7 @@ const SearchBar = () => {
   return (
     <>
       <Row>
-        <Col lg={4} className="mt-4 p-2 bg-light border border-rounded">
+        <Col lg={4} id="searchBar" className="mt-4 p-2 bg-light border">
           <Form>
             <Form.Group>
               <Form.Control
@@ -46,9 +46,7 @@ const SearchBar = () => {
           </Form>
           <Button onClick={handleSubmit}>Search</Button>
         </Col>
-      </Row>
-      <Row>
-        <Col>
+        <Col lg={8}>
           <Current show={show} city={searchedCity} data={data} />
         </Col>
       </Row>
