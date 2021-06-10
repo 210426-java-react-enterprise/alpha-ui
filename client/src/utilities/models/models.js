@@ -1,12 +1,14 @@
 
 export class User {
 
-    constructor(username , password, email, state, city) {
+    constructor(username , password, email, state, city, firstname, lastname) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.state = state;
         this.city = city;
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 }
 
