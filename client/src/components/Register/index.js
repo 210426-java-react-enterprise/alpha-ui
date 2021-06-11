@@ -1,8 +1,18 @@
 import { Row, Col, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import { register } from "../../remote/registeration-service";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  isLoading,
+  loggedIn,
+  loggedOut,
+  authState,
+} from "../../features/auth/authSlice";
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const auth = useSelector(authState);
+
   const [userInfo, setUserInfo] = useState({
     username: "",
     password: "",
@@ -20,22 +30,29 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(isLoading());
     console.log(userInfo);
     let clear = true;
-   
+
     register(userInfo)
-        .then((user) => {
-            console.log(user);
-            setUserInfo({
-              username: "",
-              password: "",
-              firstName: "",
-              lastName: "",
-              email: "",
-              city: "",
-              state: "",
-            });
-        })
+      .then((user) => {
+        console.log(user);
+        setUserInfo({
+          username: "",
+          password: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          city: "",
+          state: "",
+        });
+        dispatch(
+          loggedIn({
+            username: user.body.username,
+            token: "",
+          })
+        );
+      })
       .catch((e) => {
         console.log(e.response.status);
         if (e.response.status === 409) {

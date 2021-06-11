@@ -1,55 +1,61 @@
 import { Row, Col } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { weatherState } from "../../../features/weatherData/weatherSlice";
 
-const Current = ({ data, city, show }) => {
-  const imgIcon = `/icons/${data.icon}.png`;
+const Current = () => {
+  const weather = useSelector(weatherState);
+
+  const imgIcon = `/icons/${weather.current.icon}.png`;
 
   return (
     <>
-      {show && (
-        <Row>
-          <Col>
-            <Row className="d-flex">
-              <Col>
-                <div className="cityCurrent">{city}</div>
-                <div className="tempCurrent">{data.temp} &deg;F</div>
-              </Col>
-              <Col>
-                <Row>
-                  <Col className="d-flex justify-content-center align-items-center">
-                    <img className="imgIcon" src={imgIcon}></img>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <div className="descriptionCurrent">{data.description}</div>
-                  </Col>
-                </Row>
-              </Col>
-              <Col className="p-4">
-                <Row>
-                  <Col>
-                    <div className="humidityCurrent">
-                      Humidity: {data.humidity}%
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <div className="pressureCurrent">
-                      Pressure: {data.pressure} mlB
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <div className="windCurrent">Wind: {data.wind} mph</div>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      )}
+      <Row>
+        <Col lg={8}>
+          <Row className="d-flex">
+            <Col>
+              <div className="cityCurrent">{weather.city}</div>
+              <div className="tempCurrent">{weather.current.temp} &deg;F</div>
+            </Col>
+            <Col>
+              <Row>
+                <Col className="d-flex justify-content-center align-items-center">
+                  <img className="imgIcon" src={imgIcon}></img>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <div className="descriptionCurrent">
+                    {weather.current.description}
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+            <Col className="p-4">
+              <Row>
+                <Col>
+                  <div className="humidityCurrent">
+                    Humidity: {weather.current.humidity}%
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <div className="pressureCurrent">
+                    Pressure: {weather.current.pressure} mlB
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <div className="windCurrent">
+                    Wind: {weather.current.wind} mph
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </>
   );
 };

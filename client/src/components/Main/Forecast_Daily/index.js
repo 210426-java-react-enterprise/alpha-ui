@@ -1,31 +1,16 @@
 import { Row, Col, Button } from "react-bootstrap";
 import Day from "./day";
-import { oneCall } from "../../../utilities/weatherCalls";
-import { useRef, useState } from "react";
+import { useSelector } from 'react-redux';
+import { weatherState } from '../../../features/weatherData/weatherSlice';
 
-const SevenDay = ({ data }) => {
-  const response = useRef([]);
-  const [show, setShow] = useState(false);
-  const handleClick = (e) => {
-    oneCall(data.lat, data.lon).then((res) => {
-      console.log("response one call: ", res.sevenDay);
-      response.current = res.sevenDay;
-      console.log("response.current: ", response.current);
-      setShow(true);
-    });
-  };
+const SevenDay = () => {
+
+  const weather = useSelector(weatherState);
+
   return (
     <>
-      <Row>
-        <Col>
-          <Button id="btn-sevenDay" onClick={handleClick}>
-            7 Day Forecast
-          </Button>
-        </Col>
-      </Row>
-      {show && (
         <Row className="d-flex bg-light border mt-3">
-          {response.current.map((day, i) => {
+          {weather.daily.sevenDay.map((day, i) => {
             return (
               <Day
                 key={i}
@@ -41,7 +26,6 @@ const SevenDay = ({ data }) => {
             );
           })}
         </Row>
-      )}
     </>
   );
 };

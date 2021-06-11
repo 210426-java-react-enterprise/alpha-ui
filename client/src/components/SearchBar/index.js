@@ -1,17 +1,16 @@
 import { Row, Col, Form, Button } from "react-bootstrap";
-import Current from "../Main/Current";
-import { currentWeather } from "../../utilities/weatherCalls";
+import { currentWeather, oneCall } from "../../utilities/weatherCalls";
 import { useState } from "react";
-import SevenDay from "../Main/Forecast_Daily";
+import { useDispatch, useSelector } from "react-redux";
+import { isLoading, loadCurrent, loadDaily, isLoaded, weatherState } from "../../features/weatherData/weatherSlice";
 
 const SearchBar = () => {
+  const dispatch = useDispatch();
+  const weather = useSelector(weatherState);
+
   const [city, setCity] = useState({
     city: "",
   });
-
-  const [data, setdata] = useState({});
-  const [searchedCity, setSearchedCity] = useState("");
-  const [show, setShow] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,18 +19,21 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(isLoading());
     currentWeather(city.city).then((res) => {
-      setdata(res);
-      setCity({ city: "" });
-      setSearchedCity(city.city);
-      setShow(true);
+      dispatch(loadCurrent({ data: res, city: city.city }));
+      setCity({city: ""});
+      return oneCall(res.lat, res.lon).then(response => {
+        dispatch(loadDaily({ data: response }));
+        dispatch(isLoaded());
+      }).catch(err => console.log(err));
     });
   };
 
   return (
     <>
       <Row>
-        <Col lg={4} id="searchBar" className="mt-4 p-2 bg-light border">
+        <Col lg={6} id="searchBar" className="mt-4 p-2 bg-light border">
           <Form>
             <Form.Group>
               <Form.Control
@@ -45,14 +47,6 @@ const SearchBar = () => {
             </Form.Group>
           </Form>
           <Button onClick={handleSubmit}>Search</Button>
-        </Col>
-        <Col lg={8}>
-          <Current show={show} city={searchedCity} data={data} />
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={12}>
-          <SevenDay data={data} show={show} />
         </Col>
       </Row>
     </>
