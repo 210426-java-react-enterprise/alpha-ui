@@ -9,7 +9,7 @@ import {
   authState,
 } from "../../features/auth/authSlice";
 
-const Register = () => {
+const Register = ({handleClose}) => {
   const dispatch = useDispatch();
   const auth = useSelector(authState);
 
@@ -52,6 +52,7 @@ const Register = () => {
             token: "",
           })
         );
+        handleClose();
       })
       .catch((e) => {
         console.log(e.response.status);
