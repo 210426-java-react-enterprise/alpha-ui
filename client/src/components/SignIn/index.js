@@ -1,8 +1,14 @@
 import { Row, Col, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
+import {loggedIn, authState} from "../../features/auth/authSlice";
 
-const SignIn = () => {
+const SignIn = ({handleClose}) => {
+
+  const dispatch = useDispatch();
+  const auth = useSelector(authState);
+
   const [loginCreds, setLoginCreds] = useState({
     username: "",
     password: "",
@@ -20,10 +26,12 @@ const SignIn = () => {
       .post("http://localhost:5000/auth/login", loginCreds)
       .then((res) => {
         console.log("response login: ", res);
+        dispatch(loggedIn({username: res.data.username}));
         setLoginCreds({
           username: "",
           password: ""
         })
+        handleClose();
       })
       .catch((err) => console.log(err));
   };

@@ -1,9 +1,6 @@
 import "./App.css";
 import { Container, Row, Col } from "react-bootstrap";
-import Register from "./components/Register";
-import SignIn from "./components/SignIn";
 import SearchBar from "./components/SearchBar";
-import SignOut from "./components/SignOut";
 import { weatherState } from "./features/weatherData/weatherSlice";
 import { useSelector } from "react-redux";
 import Current from "./components/Main/Current";
@@ -25,12 +22,7 @@ function App() {
             <Col>
               <NavBar />
             </Col>
-            {/* <Col>
-              <Register />
-            </Col>
-            <Col>
-              <SignIn />
-            </Col> */}
+
           </Row>
           <Row>
             <Col>

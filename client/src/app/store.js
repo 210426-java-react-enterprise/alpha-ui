@@ -5,6 +5,6 @@ import weatherReducer from "../features/weatherData/weatherSlice";
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    weather: weatherReducer
+    weather: weatherReducer,
   },
 });
