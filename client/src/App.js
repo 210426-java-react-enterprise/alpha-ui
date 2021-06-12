@@ -7,9 +7,12 @@ import Current from "./components/Main/Current";
 import Loader from "./components/Loader";
 import SevenDay from "./components/Main/Forecast_Daily";
 import NavBar from "./components/Main/NavBar";
+import Events from "./components/Events";
+import {authState} from "./features/auth/authSlice";
 
 function App() {
   const weather = useSelector(weatherState);
+  const auth = useSelector(authState)
 
   return (
     <Container fluid>
@@ -47,6 +50,13 @@ function App() {
                 <SevenDay />
               </Col>
             )}
+          </Row>
+          <Row>
+            <Col>
+              {auth.isAuthenticated &&
+              <Events />
+              }
+            </Col>
           </Row>
         </Col>
       </Row>

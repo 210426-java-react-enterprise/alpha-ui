@@ -1,6 +1,6 @@
 import { Row, Col, Button, Form } from "react-bootstrap";
 import { useState } from "react";
-import { register } from "../../remote/registeration-service";
+import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import {
   isLoading,
@@ -34,7 +34,7 @@ const Register = ({handleClose}) => {
     console.log(userInfo);
     let clear = true;
 
-    register(userInfo)
+    axios.post(userInfo)
       .then((user) => {
         console.log(user);
         setUserInfo({
