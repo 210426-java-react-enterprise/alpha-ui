@@ -4,7 +4,6 @@ import RegisterModal from "../Modal/Register";
 import SignInModal from "../Modal/SignIn";
 import {useSelector,useDispatch} from "react-redux";
 import {authState,loggedOut} from "../../../features/auth/authSlice";
-import {getEvents} from "../../../remote/events-connection";
 
 
 const NavBar = () => {
@@ -17,10 +16,6 @@ const NavBar = () => {
     const handleShowSignIn = () => setShowSignIn(true);
 
     const handleSignOut = () => dispatch(loggedOut());
-
-    const handleMyEvents = () => {
-
-    }
 
     return (
         <Navbar bg="dark" expand="lg">
@@ -40,7 +35,7 @@ const NavBar = () => {
                     </>
                     }
                     {auth.isShown &&
-                    <Nav.Link className="text-light" onClick={handleMyEvents}>
+                    <Nav.Link className="text-light">
                         My Events
                     </Nav.Link>
                     }
