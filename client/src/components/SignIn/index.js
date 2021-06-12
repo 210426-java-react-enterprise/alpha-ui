@@ -3,7 +3,6 @@ import {useState} from "react";
 import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import {loggedIn, authState} from "../../features/auth/authSlice";
-import GetEvents from "../../remote/events-connection";
 
 const SignIn = ({handleClose}) => {
 
@@ -11,17 +10,8 @@ const SignIn = ({handleClose}) => {
     const auth = useSelector(authState);
 
     const [loginCreds, setLoginCreds] = useState({
-        id: 0,
         username: '',
         password: '',
-    });
-    const [availableEvents, setAvailableEvents] = useState({
-        event_id: "",
-        event_date: "",
-        user_id: "",
-        event_description: "",
-        event_title: "",
-        event_url: ""
     });
 
     const handleChange = (e) => {
@@ -35,31 +25,15 @@ const SignIn = ({handleClose}) => {
         axios
             .post("http://localhost:5000/auth/login", loginCreds)
             .then((res) => {
-                // console.log("response login: ", res.data);
                 dispatch(loggedIn({username: res.data.username,token: res.data.token}));
                 setLoginCreds({
-                    id: res.data.id,               //strange, won't set
-                    username: res.data.username,
-                    password: res.data.password
+                    username: '',
+                    password: ''
                 });
-                // console.log(loginCreds);
                 handleClose();
 
             }).catch((err) => console.log(err));
 
-    const handleClick = (e) => {
-        axios.get("http://localhost:5000/events", auth.token).then((res) => {
-            console.log("events: ", res);
-            setAvailableEvents({
-                event_id: "",
-                event_date: "",
-                user_id: "",
-                event_description: "",
-                event_title: "",
-                event_url: ""
-            })
-        }).catch(e => console.log(e));
-    }
     }
         return (
             <Row>
