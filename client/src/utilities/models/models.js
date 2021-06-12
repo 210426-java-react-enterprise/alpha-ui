@@ -14,11 +14,13 @@ export class User {
 
 export class Event {
 
-    constructor(user_id, event_url, event_date, event_title) {
+    constructor(user_id, event_url, event_date, event_title,event_description,event_id) {
         this.user_id = user_id;
         this.event_url = event_url;
         this.event_date = event_date;
         this.event_title = event_title;
+        this.event_description = event_description;
+        this.event_id = event_id;
     }
 
 }

@@ -1,7 +1,7 @@
 import { Row, Col, Button, Form } from "react-bootstrap";
 import { useState } from "react";
-import { register } from "../../remote/registeration-service";
 import { useDispatch, useSelector } from "react-redux";
+import {register} from "../../remote/registration-service"
 import {
   isLoading,
   loggedIn,

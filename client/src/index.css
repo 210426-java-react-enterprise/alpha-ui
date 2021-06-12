@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#thh {
+  color: white;
+  font-weight: 700;
+  font-size: large;
+  border: 3px solid #353a40;
+}
+
+#th {
+  text-align: left;
+}

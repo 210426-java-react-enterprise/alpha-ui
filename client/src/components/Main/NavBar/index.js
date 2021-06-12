@@ -2,7 +2,6 @@ import {Navbar, Nav} from "react-bootstrap";
 import {useState} from "react";
 import RegisterModal from "../Modal/Register";
 import SignInModal from "../Modal/SignIn";
-import Events from "../../Events";
 import {useSelector,useDispatch} from "react-redux";
 import {authState,loggedOut} from "../../../features/auth/authSlice";
 
@@ -15,9 +14,6 @@ const NavBar = () => {
 
     const [showSignIn, setShowSignIn] = useState(false);
     const handleShowSignIn = () => setShowSignIn(true);
-
-    const [showEvents, setShowEvents] = useState(false);
-    const handleShowEvents = () => setShowEvents(true);
 
     const handleSignOut = () => dispatch(loggedOut());
 
@@ -34,13 +30,13 @@ const NavBar = () => {
                         </Nav.Link>
 
                         <Nav.Link className="text-light" onClick={handleShowSignIn}>
-                            SignIn
+                            Sign in
                         </Nav.Link>
                     </>
                     }
                     {auth.isShown &&
                     <Nav.Link className="text-light">
-                        Events
+                        My Events
                     </Nav.Link>
                     }
                     {auth.isAuthenticated &&
