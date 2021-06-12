@@ -21,8 +21,9 @@ const Register = () => {
     email: "",
     city: "",
     state: "",
+    wantsWeeklyUpdates: true,
   });
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
@@ -45,6 +46,7 @@ const Register = () => {
           email: "",
           city: "",
           state: "",
+          wantsWeeklyUpdates: true,
         });
         dispatch(
           loggedIn({
@@ -144,6 +146,28 @@ const Register = () => {
                 placeholder="City"
               />
             </Form.Group>
+              <p>Would you like to recieve weekly weather updates from AlphaCast?</p>
+              <Form.Check
+                inline
+                label="Yes, please!"
+                name="wantsWeeklyUpdates"
+                type="radio"
+                checked="true"
+                id={`inline-radio-1`}
+                onChange={handleChange}
+      
+              />
+              <Form.Check
+                inline
+                label="No, thank you."
+                name="wantsWeeklyUpdates"
+                type= "radio"
+                checked="false"
+                id={`inline-radio-2`}
+                onChange={handleChange}
+              />
+              <br/>
+            
             <Button onClick={handleSubmit} variant="primary" type="submit">
               Register
             </Button>

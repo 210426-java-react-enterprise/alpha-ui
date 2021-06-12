@@ -5,8 +5,13 @@ export const authSlice = createSlice({
   initialState: {
     isLoading: false,
     username: "",
+    firstname: "",
+    email: "",
+    location: "",
+    userWantsUpdate: true,
     token: "",
     isAuthenticated: false,
+    
   },
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
@@ -18,6 +23,10 @@ export const authSlice = createSlice({
       state.isAuthenticated = true;
       state.username = action.payload.username;
       state.token = action.payload.token;
+      state.email = action.payload.email;
+      state.firstname = action.payload.firstname;
+      state.location = action.payload.location;
+      state.userWantsUpdate = action.payload.userWantsUpdate;
     },
     loggedOut: (state) => {
       state.isLoading = false;
@@ -25,6 +34,7 @@ export const authSlice = createSlice({
       state.username = "";
       state.token = "";
     },
+   
   },
 });
 

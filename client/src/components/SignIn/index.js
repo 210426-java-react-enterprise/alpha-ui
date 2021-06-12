@@ -1,8 +1,13 @@
 import { Row, Col, Button, Form } from "react-bootstrap";
 import { useState } from "react";
+import {useDispatch, useSelector } from "react-redux";
+import { isLoading, loggedIn, authState} from "../../features/auth/authSlice";
 import axios from "axios";
 
 const SignIn = () => {
+  const dispatch = useDispatch();
+  const auth = useSelector(authState);
+
   const [loginCreds, setLoginCreds] = useState({
     username: "",
     password: "",
@@ -14,8 +19,12 @@ const SignIn = () => {
   };
 
   const handleSubmit = (e) => {
+    console.log(loginCreds)
+    
     // use auth service for login
+
     e.preventDefault();
+    //console.log(loginCreds)
     axios
       .post("http://localhost:5000/auth/login", loginCreds)
       .then((res) => {
@@ -24,6 +33,10 @@ const SignIn = () => {
           username: "",
           password: ""
         })
+        dispatch(loggedIn({
+          username: res.data.username,
+          email: res.data.email,
+        }))
       })
       .catch((err) => console.log(err));
   };
