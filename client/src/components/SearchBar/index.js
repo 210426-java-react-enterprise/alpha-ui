@@ -33,7 +33,7 @@ const SearchBar = () => {
   return (
     <>
       <Row>
-        <Col lg={6} id="searchBar" className="mt-4 p-2 bg-light border">
+        <Col id="searchBar" className="mt-4 p-2 bg-light border">
           <Form>
             <Form.Group>
               <Form.Control
@@ -46,7 +46,7 @@ const SearchBar = () => {
               />
             </Form.Group>
           </Form>
-          <Button onClick={handleSubmit}>Search</Button>
+          <Button style={{ backgroundColor: "#0beeff", border: "none" }} onClick={handleSubmit}>Search</Button>
         </Col>
       </Row>
     </>

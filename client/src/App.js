@@ -30,23 +30,35 @@ function App() {
                 <NavBar />
               </Col>
             </Row>
-            <Row>
+            <Row className="m-3">
               <Col>
-                <SearchBar />
+                <Row>
+                  <Col>
+                    <SearchBar />
+                  </Col>
+                </Row>
+                <Row>
+                  {weather.isLoading && (
+                    <Col className="d-flex justify-content-center align-items-center">
+                      <Loader />
+                    </Col>
+                  )}
+                  {weather.isLoaded && (
+                    <Col>
+                      <Current />
+                    </Col>
+                  )}
+                </Row>
+              </Col>
+              <Col className="d-flex justify-content-center align-items-center m-3">
+                <img
+                  src="/alphaLogo.png"
+                  width="50%"
+                  alt="alphacast logo"
+                ></img>
               </Col>
             </Row>
-            <Row>
-              {weather.isLoading && (
-                <Col className="d-flex justify-content-center align-items-center">
-                  <Loader />
-                </Col>
-              )}
-              {weather.isLoaded && (
-                <Col>
-                  <Current />
-                </Col>
-              )}
-            </Row>
+
             <Row>
               {weather.isLoaded && (
                 <Col>
