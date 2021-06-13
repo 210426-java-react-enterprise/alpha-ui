@@ -25,6 +25,7 @@ const SignIn = ({handleClose}) => {
         axios
             .post("http://localhost:5000/auth/login", loginCreds)
             .then((res) => {
+                console.log("Login Response: ", res);
                 dispatch(loggedIn({username: res.data.username,token: res.data.token}));
                 setLoginCreds({
                     username: '',

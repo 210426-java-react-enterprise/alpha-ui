@@ -15,7 +15,7 @@ export default function Event() {
             dispatch(isLoaded({data: res}));
             dispatch(showData());
         }).catch(e => console.log(e))
-    },[])
+    },[event.savedEvents])
 
 
     return (
