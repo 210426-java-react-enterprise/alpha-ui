@@ -11,7 +11,7 @@ export const authSlice = createSlice({
     userWantsUpdate: true,
     token: "",
     isAuthenticated: false,
-    
+    isShown: false,
   },
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
@@ -27,10 +27,12 @@ export const authSlice = createSlice({
       state.firstname = action.payload.firstname;
       state.location = action.payload.location;
       state.userWantsUpdate = action.payload.userWantsUpdate;
+      state.isShown = true;
     },
     loggedOut: (state) => {
       state.isLoading = false;
       state.isAuthenticated = false;
+      state.isShown = false;
       state.username = "";
       state.token = "";
     },

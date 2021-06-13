@@ -1,7 +1,7 @@
 import { Row, Col, Button, Form } from "react-bootstrap";
 import { useState } from "react";
-import { register } from "../../remote/registeration-service";
 import { useDispatch, useSelector } from "react-redux";
+import {register} from "../../remote/registration-service"
 import {
   isLoading,
   loggedIn,
@@ -9,7 +9,7 @@ import {
   authState,
 } from "../../features/auth/authSlice";
 
-const Register = () => {
+const Register = ({handleClose}) => {
   const dispatch = useDispatch();
   const auth = useSelector(authState);
 
@@ -54,6 +54,7 @@ const Register = () => {
             token: "",
           })
         );
+        handleClose();
       })
       .catch((e) => {
         console.log(e.response.status);

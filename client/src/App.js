@@ -1,18 +1,18 @@
 import "./App.css";
 import { Container, Row, Col } from "react-bootstrap";
-import Register from "./components/Register";
-import SignIn from "./components/SignIn";
 import SearchBar from "./components/SearchBar";
-import SignOut from "./components/SignOut";
 import { weatherState } from "./features/weatherData/weatherSlice";
 import { useSelector } from "react-redux";
 import Current from "./components/Main/Current";
 import Loader from "./components/Loader";
 import SevenDay from "./components/Main/Forecast_Daily";
 import NavBar from "./components/Main/NavBar";
+import Events from "./components/Events";
+import {authState} from "./features/auth/authSlice";
 
 function App() {
   const weather = useSelector(weatherState);
+  const auth = useSelector(authState)
 
   return (
     <Container fluid>
@@ -25,12 +25,7 @@ function App() {
             <Col>
               <NavBar />
             </Col>
-            {/* <Col>
-              <Register />
-            </Col>
-            <Col>
-              <SignIn />
-            </Col> */}
+
           </Row>
           <Row>
             <Col>
@@ -55,6 +50,13 @@ function App() {
                 <SevenDay />
               </Col>
             )}
+          </Row>
+          <Row>
+            <Col>
+              {auth.isAuthenticated &&
+              <Events />
+              }
+            </Col>
           </Row>
         </Col>
       </Row>
