@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /* styling for search bar */
 #searchBar {
   height: 115px;
@@ -12,45 +13,45 @@
 }
 .cityCurrent {
   font-size: 35px;
+=======
+.App {
+>>>>>>> Stashed changes
   text-align: center;
 }
 
-.humidityCurrent,
-.pressureCurrent,
-.windCurrent {
-  margin: 6px 0px;
-  font-weight: 700;
-}
-.descriptionCurrent {
-  text-align: center;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-/* styling for seven day forecast chart */
-
-.dateDay {
-  font-weight: 700;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
-.tempDay {
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
-  justify-content: space-around;
-  border-bottom: 1px solid black;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
-.tempHigh {
-  color: red;
-  font-weight: 700;
-  font-size: 16px;
+
+.App-link {
+  color: #61dafb;
 }
-.tempLow {
-  color: blue;
-  font-weight: 700;
-  font-size: 16px;
-}
-.uviDay,
-.humidityDay,
-.pressureDay,
-.windDay {
-  font-weight: 600;
-  font-size: 14px;
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .windHour {
   font-size: 14px;
