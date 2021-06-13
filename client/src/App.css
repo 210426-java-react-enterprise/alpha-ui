@@ -7,11 +7,11 @@
 /* Styling for current weather container */
 
 .tempCurrent {
-  font-size: 70px;
+  font-size: 50px;
   text-align: center;
 }
 .cityCurrent {
-  font-size: 55px;
+  font-size: 35px;
   text-align: center;
 }
 

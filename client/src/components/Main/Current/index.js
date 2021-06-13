@@ -10,7 +10,7 @@ const Current = () => {
   return (
     <>
       <Row>
-        <Col lg={8}>
+        <Col>
           <Row className="d-flex">
             <Col>
               <div className="cityCurrent">{weather.city}</div>
@@ -19,7 +19,7 @@ const Current = () => {
             <Col>
               <Row>
                 <Col className="d-flex justify-content-center align-items-center">
-                  <img className="imgIcon" src={imgIcon}></img>
+                  <img width="50px;" className="imgIcon" src={imgIcon}></img>
                 </Col>
               </Row>
               <Row>
@@ -30,7 +30,7 @@ const Current = () => {
                 </Col>
               </Row>
             </Col>
-            <Col className="p-4">
+            <Col className="">
               <Row>
                 <Col>
                   <div className="humidityCurrent">

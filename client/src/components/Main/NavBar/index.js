@@ -19,7 +19,7 @@ const NavBar = () => {
 
   return (
     <Navbar bg="dark" expand="lg">
-      <Navbar.Brand className="text-success">AlphaCast</Navbar.Brand>
+      <Navbar.Brand style={{ color: "#0beeff" }}>AlphaCast</Navbar.Brand>
       <Navbar.Toggle className="bg-light" aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
