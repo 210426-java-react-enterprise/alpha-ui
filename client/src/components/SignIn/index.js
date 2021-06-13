@@ -17,28 +17,6 @@ const SignIn = ({handleClose}) => {
     const dispatch = useDispatch();
     const auth = useSelector(authState);
 
-  const handleSubmit = (e) => {
-    console.log(loginCreds)
-    
-    // use auth service for login
-
-    e.preventDefault();
-    //console.log(loginCreds)
-    axios
-      .post("http://localhost:5000/auth/login", loginCreds)
-      .then((res) => {
-        console.log("response login: ", res);
-        setLoginCreds({
-          username: "",
-          password: ""
-        })
-        dispatch(loggedIn({
-          username: res.data.username,
-          email: res.data.email,
-        }))
-      })
-      .catch((err) => console.log(err));
-  };
     const [loginCreds, setLoginCreds] = useState({
         username: '',
         password: '',
@@ -108,3 +86,4 @@ const SignIn = ({handleClose}) => {
     };
 
 export default SignIn;
+}
