@@ -1,4 +1,4 @@
-import { Row, Col, Button } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import Day from "./day";
 import { useSelector } from 'react-redux';
 import { weatherState } from '../../../features/weatherData/weatherSlice';
