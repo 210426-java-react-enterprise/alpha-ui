@@ -2,7 +2,7 @@ import { Row, Col, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import {useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import {loggedIn, authState} from "../../features/auth/authSlice";
+import {loggedIn, authState} from "../gi../features/auth/authSlice";
 
 const SignIn = () => {
   const dispatch = useDispatch();
