@@ -9,7 +9,7 @@ const Current = () => {
 
   const cityNameMaker = () => {
     let str = weather.city;
-    str = str.substring(0,1).toUpperCase() + str.substring(1); console.log(str);
+    str = str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase(); console.log(str);
     return str;
   }
 
