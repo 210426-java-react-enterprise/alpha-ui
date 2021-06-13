@@ -11,6 +11,7 @@ import NavBar from "./components/Main/NavBar";
 import Events from "./components/Events";
 import { authState } from "./features/auth/authSlice";
 import EventSearch from "./components/EventSearch";
+import TwelveHour from "./components/Main/Forecast_Hourly";
 
 function App() {
   const weather = useSelector(weatherState);
@@ -43,6 +44,13 @@ function App() {
               {weather.isLoaded && (
                 <Col>
                   <Current />
+                </Col>
+              )}
+            </Row>
+            <Row>
+              {weather.isLoaded && (
+                <Col>
+                  <TwelveHour />
                 </Col>
               )}
             </Row>
