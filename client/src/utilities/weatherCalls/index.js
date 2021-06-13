@@ -44,8 +44,9 @@ export const oneCall = async (lat, lon) => {
         for (let i = 0; i < 12; i++) {
             let hour = new CurrentWeather();
             hour.description = hourly[i].weather[0].description;
+            hour.dt = timeConverter(hourly[i].dt);
             hour.icon = hourly[i].weather[0].icon;
-            hour.temp = hourly[i].temp;
+            hour.temp = convertTemp(hourly[i].temp);
             hour.pressure = hourly[i].pressure;
             hour.humidity = hourly[i].humidity;
             hour.wind = hourly[i].wind_speed;
@@ -89,5 +90,10 @@ function dateConverter(unix) {
     let year = a.getFullYear();
     return month + "/" + date;
 }
-
+function timeConverter(unix) {
+  let a = new Date(unix * 1000);
+  let hour = a.getHours();
+  let minute = a.getMinutes();
+  return hour + ":0" + minute;
+}
 
