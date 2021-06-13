@@ -55,11 +55,11 @@ const EventSearchForm = () => {
                     name="state"
                     value={searchCreds.state}
                     onChange={handleChange}
-                    placeholder="Password"
+                    placeholder="Enter State"
                   />
                 </Form.Group>
                 <Button onClick={handleSubmit} variant="primary" type="submit">
-                  Login
+                  Search
                 </Button>
               </Form>
             </Col>

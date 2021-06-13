@@ -5,6 +5,7 @@ import SignInModal from "../Modal/SignIn";
 import { useSelector, useDispatch } from "react-redux";
 import { authState, loggedOut } from "../../../features/auth/authSlice";
 import { Link } from "react-router-dom";
+import {doNotShowData, showData,} from "../../../features/eventsData/eventsSlice";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,8 @@ const NavBar = () => {
   const [showSignIn, setShowSignIn] = useState(false);
   const handleShowSignIn = () => setShowSignIn(true);
 
-  const handleSignOut = () => dispatch(loggedOut());
+  const handleSignOut = () => {dispatch(loggedOut());dispatch(doNotShowData())}
+  const handleShowEventSearch = () => dispatch(showData())
 
   return (
     <Navbar bg="dark" expand="lg">
@@ -39,9 +41,9 @@ const NavBar = () => {
           )}
           {auth.isAuthenticated && (
             <>
-              <Link className="text-light d-lg-flex justify-content-center align-items-center" to="/events">
+              <Nav.Link className="text-light d-lg-flex justify-content-center align-items-center" onClick={handleShowEventSearch}>
                 Search Events
-              </Link>
+              </Nav.Link>
 
               <Nav.Link className="text-light" onClick={handleSignOut}>
                 SignOut

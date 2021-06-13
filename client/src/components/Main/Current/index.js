@@ -7,13 +7,19 @@ const Current = () => {
 
   const imgIcon = `/icons/${weather.current.icon}.png`;
 
+  const cityNameMaker = () => {
+    let str = weather.city;
+    str = str.substring(0,1).toUpperCase() + str.substring(1); console.log(str);
+    return str;
+  }
+
   return (
     <>
       <Row>
         <Col>
           <Row className="d-flex">
             <Col>
-              <div className="cityCurrent">{weather.city}</div>
+              <div className="cityCurrent">{cityNameMaker()}</div>
               <div className="tempCurrent">{weather.current.temp} &deg;F</div>
             </Col>
             <Col>
