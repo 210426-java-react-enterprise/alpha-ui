@@ -1,7 +1,7 @@
 import { Row, Col, Button, Form } from "react-bootstrap";
 import { useState } from "react";
+import {register} from "../../remote/registration-service";
 import { useDispatch, useSelector } from "react-redux";
-import {register} from "../../remote/registration-service"
 import {
   isLoading,
   loggedIn,
@@ -9,7 +9,7 @@ import {
   authState,
 } from "../../features/auth/authSlice";
 
-const Register = ({handleClose}) => {
+const Register = () => {
   const dispatch = useDispatch();
   const auth = useSelector(authState);
 
@@ -21,9 +21,11 @@ const Register = ({handleClose}) => {
     email: "",
     city: "",
     state: "",
-    wantsWeeklyUpdates: true,
+    wantsWeeklyUpdates: "",
+
+
   });
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
@@ -46,7 +48,7 @@ const Register = ({handleClose}) => {
           email: "",
           city: "",
           state: "",
-          wantsWeeklyUpdates: true,
+          wantsWeeklyUpdates:"",
         });
         dispatch(
           loggedIn({
@@ -54,7 +56,6 @@ const Register = ({handleClose}) => {
             token: "",
           })
         );
-        handleClose();
       })
       .catch((e) => {
         console.log(e.response.status);
@@ -147,13 +148,15 @@ const Register = ({handleClose}) => {
                 placeholder="City"
               />
             </Form.Group>
-              <p>Would you like to recieve weekly weather updates from AlphaCast?</p>
-              <Form.Check
+            <br/>
+            <p>Would you like to recieve email notifications?</p>
+            <Form.Check
                 inline
                 label="Yes, please!"
                 name="wantsWeeklyUpdates"
                 type="radio"
-                checked="true"
+                value="true"
+              
                 id={`inline-radio-1`}
                 onChange={handleChange}
       
@@ -163,12 +166,12 @@ const Register = ({handleClose}) => {
                 label="No, thank you."
                 name="wantsWeeklyUpdates"
                 type= "radio"
-                checked="false"
+                
+                value= "false"
                 id={`inline-radio-2`}
                 onChange={handleChange}
               />
               <br/>
-            
             <Button onClick={handleSubmit} variant="primary" type="submit">
               Register
             </Button>

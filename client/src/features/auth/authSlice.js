@@ -8,10 +8,11 @@ export const authSlice = createSlice({
     firstname: "",
     email: "",
     location: "",
-    userWantsUpdate: true,
+    wantsWeeklyUpdates: true,
     token: "",
     isAuthenticated: false,
     isShown: false,
+    
   },
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
@@ -26,7 +27,7 @@ export const authSlice = createSlice({
       state.email = action.payload.email;
       state.firstname = action.payload.firstname;
       state.location = action.payload.location;
-      state.userWantsUpdate = action.payload.userWantsUpdate;
+      state.wantsWeeklyUpdates =  action.payload.wantsWeeklyUpdates;
       state.isShown = true;
     },
     loggedOut: (state) => {
