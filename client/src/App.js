@@ -1,29 +1,91 @@
 import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import Register from "./components/Register";
-import SignIn from "./components/SignIn";
 import SearchBar from "./components/SearchBar";
-import SignOut from "./components/SignOut";
-
+import { weatherState } from "./features/weatherData/weatherSlice";
+import { useSelector } from "react-redux";
+import Current from "./components/Main/Current";
+import Loader from "./components/Loader";
+import SevenDay from "./components/Main/Forecast_Daily";
+import NavBar from "./components/Main/NavBar";
+import Events from "./components/Events";
+import { authState } from "./features/auth/authSlice";
+import EventSearch from "./components/EventSearch";
+import TwelveHour from "./components/Main/Forecast_Hourly";
 
 function App() {
-  
+  const weather = useSelector(weatherState);
+  const auth = useSelector(authState);
+
   return (
-    <Container>
-      <Row>
-        <Col>
-          <Register />
-        </Col>
-        <Col>
-          <SignIn />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <SearchBar />
-        </Col>
-      </Row>
-    </Container>
+    <Router>
+      <Container fluid>
+        <Row
+          style={{ height: "100vh" }}
+          className="d-flex justify-content-center"
+        >
+          <Col lg={10}>
+            <Row>
+              <Col>
+                <NavBar />
+              </Col>
+            </Row>
+            <Row className="m-3">
+              <Col>
+                <Row>
+                  <Col>
+                    <SearchBar />
+                  </Col>
+                </Row>
+                <Row>
+                  {weather.isLoading && (
+                    <Col className="d-flex justify-content-center align-items-center">
+                      <Loader />
+                    </Col>
+                  )}
+                  {weather.isLoaded && (
+                    <Col>
+                      <Current />
+                    </Col>
+                  )}
+                </Row>
+              </Col>
+              <Col className="d-flex justify-content-center align-items-center m-3">
+                <img
+                  src="/alphaLogo.png"
+                  width="50%"
+                  alt="alphacast logo"
+                ></img>
+              </Col>
+            </Row>
+
+            <Row>
+              {weather.isLoaded && (
+                <Col>
+                  <TwelveHour />
+                </Col>
+              )}
+            </Row>
+            <Row>
+              {weather.isLoaded && (
+                <Col>
+                  <SevenDay />
+                </Col>
+              )}
+            </Row>
+            <Row>
+              <Col>{auth.isAuthenticated && <Events />}</Col>
+            </Row>
+
+            <Switch>
+              <Route path="/events">
+                <EventSearch />
+              </Route>
+            </Switch>
+          </Col>
+        </Row>
+      </Container>
+    </Router>
   );
 }
 

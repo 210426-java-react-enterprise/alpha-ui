@@ -1,19 +1,59 @@
+/* styling for search bar */
+#searchBar {
+  height: 115px;
+  margin-bottom: 10px;
+}
+
+/* Styling for current weather container */
+
 .tempCurrent {
-  font-size: 70px;
+  font-size: 50px;
   text-align: center;
 }
 .cityCurrent {
-  font-size: 55px;
+  font-size: 35px;
   text-align: center;
 }
 
 .humidityCurrent,
 .pressureCurrent,
 .windCurrent {
-  margin: 6px 0px; 
+  margin: 6px 0px;
   font-weight: 700;
 }
 .descriptionCurrent {
   text-align: center;
 }
 
+/* styling for seven day forecast chart */
+
+.dateDay {
+  font-weight: 700;
+}
+.tempDay {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+}
+.tempHigh {
+  color: red;
+  font-weight: 700;
+  font-size: 16px;
+}
+.tempLow {
+  color: blue;
+  font-weight: 700;
+  font-size: 16px;
+}
+.uviDay,
+.humidityDay,
+.pressureDay,
+.windDay {
+  font-weight: 600;
+  font-size: 14px;
+}
+.windHour {
+  font-size: 14px;
+  font-weight: 600;
+  text-align:center;
+}

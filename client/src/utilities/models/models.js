@@ -1,35 +1,43 @@
 
 export class User {
 
-    constructor(username , password, email, state, city) {
+    constructor(username , password, email, state, city, firstname, lastname, wantsWeeklyUpdates) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.state = state;
         this.city = city;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.wantsWeeklyUpdate = wantsWeeklyUpdates;
     }
 }
 
 export class Event {
 
-    constructor(user_id, event_url, event_date, event_title) {
+    constructor(user_id, event_url, event_date, event_title,event_description,event_id) {
         this.user_id = user_id;
         this.event_url = event_url;
         this.event_date = event_date;
         this.event_title = event_title;
+        this.event_description = event_description;
+        this.event_id = event_id;
     }
 
 }
 
 export class CurrentWeather {
 
-    constructor(description, icon, temp, pressure, humidity, wind) {
+    constructor(description, icon, temp, pressure, humidity, wind, lat, lon, dt) {
         this.description = description;
         this.icon = icon;
         this.temp = temp;
         this.pressure = pressure;
         this.humidity = humidity;
         this.wind = wind;
+        this.lat = lat;
+        this.lon = lon;
+        this.dt = dt;
     }
 
 }
