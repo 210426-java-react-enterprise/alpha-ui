@@ -23,7 +23,7 @@ class AuthService {
         return alphacastAuthenticatedClient.post("register", {
             username,
             password,
-            email
+            email,
         });
     }
 
